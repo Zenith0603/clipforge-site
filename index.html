@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClipForge — personal clip pipeline</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body {
+        margin: 0 auto;
+        max-width: 46rem;
+        padding: 3rem 1.25rem 5rem;
+        font: 16px/1.65 -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      h1 { font-size: 2rem; margin: 0 0 0.25rem; letter-spacing: -0.02em; }
+      h2 { font-size: 1.15rem; margin: 2.5rem 0 0.75rem; }
+      .tagline { color: #777; margin: 0 0 2rem; }
+      ul { padding-left: 1.1rem; }
+      li { margin: 0.35rem 0; }
+      code { font-size: 0.9em; background: rgba(127, 127, 127, 0.15); padding: 0.1em 0.35em; border-radius: 4px; }
+      footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid rgba(127, 127, 127, 0.3); color: #777; font-size: 0.9rem; }
+      a { color: #2563eb; }
+    </style>
+  </head>
+  <body>
+    <h1>ClipForge</h1>
+    <p class="tagline">A personal pipeline for turning licensed YouTube footage into vertical, captioned clips.</p>
+
+    <h2>What it does</h2>
+    <p>
+      ClipForge runs on its owner's own computer. It watches a list of YouTube channels that publish under
+      Creative Commons, downloads candidate videos, cuts the strongest moments into vertical clips with burned-in
+      captions, and uploads those clips to the owner's own YouTube channel on a fixed schedule.
+    </p>
+    <p>
+      It is a single-user tool. There is no sign-up, no hosted service, no other users, and nothing to download
+      from this page.
+    </p>
+
+    <h2>How it uses Google APIs</h2>
+    <ul>
+      <li>It requests the <code>youtube.upload</code> scope to publish clips to the owner's own channel.</li>
+      <li>It reads the owner's own channel data (channel identity, video list and status) to schedule and verify uploads.</li>
+      <li>It does not read, request or store data belonging to any other Google user.</li>
+      <li>OAuth tokens are stored in a local file on the owner's computer and are never transmitted anywhere except to Google's own API endpoints.</li>
+    </ul>
+
+    <h2 id="privacy">Privacy policy</h2>
+    <p><em>Last updated 21 November 2026.</em></p>
+    <p>ClipForge is operated by one person, for one YouTube channel. This policy describes everything it does with data.</p>
+    <ul>
+      <li>
+        <strong>What it accesses.</strong> Google account identifiers returned by the OAuth flow, the owner's channel
+        name and ID, and metadata of the videos on that channel (titles, descriptions, privacy status, publish times).
+        Uploaded video files and their metadata are handled the same way.
+      </li>
+      <li>
+        <strong>Where it is stored.</strong> A SQLite database and a media folder on the owner's own computer
+        (<code>C:\ClipForge\data</code>). Nothing is stored on a server or in a cloud account.
+      </li>
+      <li>
+        <strong>Who it is shared with.</strong> Nobody. Clip data is sent only to the YouTube Data API to perform the
+        uploads the owner requested. There is no analytics, no advertising, no third-party service, and no sale or
+        transfer of data to anyone.
+      </li>
+      <li>
+        <strong>How long it is kept.</strong> Locally until the owner deletes it. Deleting a clip in the dashboard
+        removes its file and its database record; deleting the <code>data</code> folder removes everything.
+      </li>
+      <li>
+        <strong>Revoking access.</strong> Access can be revoked at any time at
+        <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>. Doing so stops all
+        API access immediately.
+      </li>
+    </ul>
+    <p>
+      ClipForge's use of information received from Google APIs adheres to the
+      <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+      including the Limited Use requirements.
+    </p>
+
+    <h2>Contact</h2>
+    <p>Questions about this policy: <a href="mailto:rrfdrodriguez26@gmail.com">rrfdrodriguez26@gmail.com</a></p>
+
+    <footer>ClipForge is a private, personal project. This page exists to describe the app and its data practices.</footer>
+  </body>
+</html>
